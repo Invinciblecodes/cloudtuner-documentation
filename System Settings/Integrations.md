@@ -1,5 +1,3 @@
-[Skip to content](https://hystax.com/documentation/optscale/#integrations)
-
 ## Integrations
 
 ## Google Calendar
