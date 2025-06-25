@@ -1,5 +1,3 @@
-[Skip to content](https://hystax.com/documentation/optscale/e2e_guides/#aws)
-
 ## AWS
 
 ## Root account – Data Export already configured

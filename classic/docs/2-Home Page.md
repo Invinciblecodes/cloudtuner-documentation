@@ -1,6 +1,9 @@
-[Skip to content](https://hystax.com/documentation/optscale/#home-page)
 
-## Home Page
+---
+title: Home Page
+---
+
+# Home Page
 
 A Home page provides quick access to the most popular pages of the solution.
 
