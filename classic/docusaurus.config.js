@@ -12,7 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'CloudTuner Documentation',
   tagline: 'Cloud Cost Optimization and FinOps Platform',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/cloudtuner-logo.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -20,7 +20,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://cloudtuner.ai/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -67,7 +67,7 @@ const config = {
         title: 'CloudTuner Documentation',
         logo: {
           alt: 'CloudTuner Logo',
-          src: 'img/logo.svg',
+          src: 'img/cloudtuner-logo.svg',
         },
         items: [],
       },
