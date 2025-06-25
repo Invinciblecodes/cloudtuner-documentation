@@ -20,7 +20,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://cloudtuner.ai',
+  url: 'https://docs.cloudtuner.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -48,7 +48,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/', // Serve the docs at the root of the baseUrl
+          routeBasePath: '/', // Serve the docs at the site's root
         },
         blog: false, // Disable blog
         theme: {
