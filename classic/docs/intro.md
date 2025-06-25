@@ -1,9 +1,15 @@
+---
+title: Welcome to CloudTuner
+slug: /
+---
+
+# Welcome to CloudTuner
 
 ## About CloudTuner
 
 CloudTuner is a platform that optimizes cloud costs and performance for any workload, providing effective cloud cost management for all types of organizations.
 
-## Hystax CloudTuner primary capabilities
+## CloudTuner primary capabilities
 
 - **Pool Transparency**
 	Pool breakdown and transparency across all business units, users, projects and individual cloud services. The customer sets soft and hard limits.
@@ -57,14 +63,14 @@ Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_a
 
 1\. Billing information is retrieved from the Data Exports located in a designated S3 bucket in the cloud:
 
-- [https://docs.aws.amazon.com/AmazonS3/latest/API/API\_GetObject.html](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+- [https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
 
 2\. Resource discovery is performed via **Discovery API**:
 
-- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API\_DescribeInstances.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
-- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API\_DescribeVolumes.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html)
-- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API\_DescribeSnapshots.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html)
-- [https://docs.aws.amazon.com/AmazonS3/latest/API/API\_ListBuckets.html](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
+- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
+- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html)
+- [https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html)
+- [https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html)
 
 3\. **Amazon Cloud Watch** is used as the source of monitoring data.
 
@@ -98,7 +104,7 @@ Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_a
 - [https://cloud.google.com/compute/docs/reference/rest/v1/instances/list](https://cloud.google.com/compute/docs/reference/rest/v1/instances/list)
 - [https://cloud.google.com/compute/docs/reference/rest/v1/disks/list](https://cloud.google.com/compute/docs/reference/rest/v1/disks/list)
 - [https://cloud.google.com/compute/docs/reference/rest/v1/snapshots/list](https://cloud.google.com/compute/docs/reference/rest/v1/snapshots/list)
-- [https://cloud.google.com/storage/docs/json\_api/v1/buckets/list](https://cloud.google.com/storage/docs/json_api/v1/buckets/list)
+- [https://cloud.google.com/storage/docs/json_api/v1/buckets/list](https://cloud.google.com/storage/docs/json_api/v1/buckets/list)
 - [https://cloud.google.com/compute/docs/reference/rest/v1/addresses/list](https://cloud.google.com/compute/docs/reference/rest/v1/addresses/list)
 
 Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#connecting-a-gcp-account-to-optscale) for more details.
@@ -111,7 +117,7 @@ This software is open-source, free of malware, and requires read-only access to 
 
 ![menu](https://hystax.com/documentation/optscale/_static/screens/about/menu.png)
 
-- **Home**. Find your organization’s current spending and projected expenses for the upcoming month. Details about [Home page](https://hystax.com/documentation/optscale/home_page.html).
+- **Home**. Find your organization's current spending and projected expenses for the upcoming month. Details about [Home page](https://hystax.com/documentation/optscale/home_page.html).
 - **Recommendations**. Get practical information about suggesting services and features available in CloudTuner. Find a brief description and other pertinent information in the cards to help you assess the situation quickly. [How to use recommendation cards](https://hystax.com/how-to-use-recommendation-cards-in-optscale/).
 - **Resources**. Observe the expenses for all resources across all connected clouds within the organization for the selected period. Organize and categorize resources based on your specific requirements.
 - **Pools**. View pools with limits or projected expenses that require your attention. Manage pools using the available features on this page.

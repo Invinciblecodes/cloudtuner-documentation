@@ -1,4 +1,10 @@
 
+---
+title: Home Page
+---
+
+# Home Page
+
 A Home page provides quick access to the most popular pages of the solution.
 
 ![main](https://hystax.com/documentation/optscale/_static/screens/home_page/main.png)
