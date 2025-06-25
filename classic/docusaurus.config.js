@@ -14,10 +14,10 @@ const config = {
   tagline: 'Cloud Cost Optimization and FinOps Platform',
   favicon: 'img/cloudtuner-logo.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
+  // // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  // future: {
+  //   v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  // },
 
   // Set the production url of your site here
   url: 'https://docs.cloudtuner.ai',
