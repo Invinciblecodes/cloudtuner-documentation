@@ -44,17 +44,17 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      // /** @type {import('@docusaurus/preset-classic').Options} */
+      {
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/', // Serve the docs at the site's root
+          routeBasePath: '/', // Serve the docs at the root of the baseUrl
         },
         blog: false, // Disable blog
         theme: {
           customCss: './src/css/custom.css',
         },
-      }),
+      },
     ],
   ],
 
