@@ -12,7 +12,7 @@ CloudTuner keeps up with the times. The CloudTuner team implemented the anomaly 
 
 To utilize anomaly detection policies find the **Anomaly Detection** page in the **Policies** section.
 
-![main_page](https://hystax.com/documentation/optscale/_static/screens/anomaly_detection/main_page.png)
+![main_page](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/anomalydetection.png)
 
 The table on this page gives information about all created anomalies under specified policies. Track the dynamic in the status column. On hover, view the average and current values. The description reminds us of the policy. The filters field shows the instances in which this policy is available. "-" in the filter means the policy is available for all cases.
 
@@ -22,11 +22,11 @@ Warning
 
 Pay special attention: deleted policies cannot be restored.
 
-![policy_view](https://hystax.com/documentation/optscale/_static/screens/anomaly_detection/page_overview.png)
+![policy_view](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/detectedanomalyupdation.png)
 
 If an anomaly occurs, the Organization manager receives a notification email. Click the **Go to CloudTuner** button to be automatically redirected to the solution's **Anomaly Detection** page.
 
-![policy_view](https://hystax.com/documentation/optscale/_static/screens/anomaly_detection/alert_in_email.png)
+![policy_view](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/anomalyemailtemplate.png)
 
 ## Add new policy
 
@@ -43,7 +43,7 @@ Enter a name and select the type of policy. There are two types of policies:
 
 When the type is selected, the **Evaluation period** and **Threshold** fields appear.
 
-![policy_view](https://hystax.com/documentation/optscale/_static/screens/anomaly_detection/evaluation_period_threshold.png)
+![policy_view](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/createanomalydetection.png)
 
 Below these fields a list of filters is available. Set if necessary and Save.
 

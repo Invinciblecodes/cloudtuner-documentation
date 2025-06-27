@@ -12,7 +12,7 @@ Go to the **Tagging Policies** page to get a brief description of existing polic
 
 Use the **Add** button to add a new policy. Only a user with the Organization manager role can perform this action.
 
-![page](https://hystax.com/documentation/optscale/_static/screens/tagging_policies/page.png)
+![page](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/taggingpolicies.png)
 
 - Below the policy **Name**, the time of the last check is shown. An exclamation mark appears if the restriction is violated. Hover over it to see a hint.
 - The **Status** field displays the current state of the policy:
@@ -25,7 +25,7 @@ Use the **Add** button to add a new policy. Only a user with the Organization ma
 
 If a policy violates, the Organization manager receives a notification email. Click the **Go to CloudTuner** button to be automatically redirected to the solution's **Tagging Policies** page.
 
-![alert_an_email](https://hystax.com/documentation/optscale/_static/screens/tagging_policies/alert_an_email.png)
+![alert_an_email](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/emailtemplatepolicy.png)
 
 ## Add new policy
 
@@ -35,7 +35,7 @@ Note
 
 Only a user with the Organization manager role can add a new policy.
 
-![create_tagging_policy](https://hystax.com/documentation/optscale/_static/screens/tagging_policies/create_tagging_policy.png)
+![create_tagging_policy](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/policytaggingaddition.png)
 
 Enter the name, specify start date. Use the tagging rules tabs to enforce that certain tags must be present on selected resources. Select one of the following:
 
