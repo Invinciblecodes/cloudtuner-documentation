@@ -4,9 +4,9 @@ title: Microsoft Azure
 
 ## Subscription
 
-To use data from a specific export, follow the [Subscription - With Billing Export](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#subscription-with-billing-export) instructions. Otherwise, follow the instructions below.
+To use data from a specific export, follow the [Subscription - With Billing Export](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#subscription) instructions. Otherwise, follow the instructions below.
 
-Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. Also, verify that the **Reader** permission is set. If it is not, go to the [Collect the required data](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#collect-the-required-data-subscription) section before proceeding to [Connect to CloudTuner](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#connect-to-optscale-subscription).
+Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. Also, verify that the **Reader** permission is set. If it is not, go to the [Collect the required data](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#collect-the-required-data) section before proceeding to [Connect to CloudTuner](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#connect-to-cloudtuner).
 
 ### Collect the required data
 
@@ -42,17 +42,17 @@ Secret's value is hidden shortly after its creation. Make sure to copy it in a s
 
 Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **Azure** → choose the **Subscription** connection type.
 
-![connect_azure](https://hystax.com/documentation/optscale/_static/screens/onboarding/connect_azure.png)
+![connect_azure](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/azurecloudconnect.png)
 
 To successfully connect an Azure data source to CloudTuner it is needed to pass a **Subscription ID**, **Directory (tenant) ID**, and **Application (client) ID** along with a **Secret**.
 
 When the fields are filled in, click the **Connect** button.
 
-Please contact our Support Team at [support@hystax.com](https://hystax.com/documentation/optscale/e2e_guides/) if you have any questions regarding the described configuration flow.
+Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
 
-To use data from a specific export, follow the instructions below. Otherwise, follow the [Subscription setup instructions](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#subscription).
+To use data from a specific export, follow the instructions below. Otherwise, follow the [Subscription setup instructions](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#subscription).
 
-Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. If they are not, go to the [Collect the required data](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#collect-the-required-data-billing-export) section before proceeding to [Connect to CloudTuner](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#connect-to-optscale-billing-export).
+Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. If they are not, go to the [Collect the required data](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#collect-the-required-data-2) section before proceeding to [Connect to CloudTuner](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#connect-to-cloudtuner-2).
 
 ### Collect the required data
 
@@ -95,7 +95,7 @@ Secret's value is hidden shortly after its creation. Make sure to copy it in a s
 
 Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **Azure** → choose the **Subscription** connection type.
 
-![connect_azure](https://hystax.com/documentation/optscale/_static/screens/onboarding/connect_azure_with_billing_info.png)
+![connect_azure](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/azurecloudconnect.png)
 
 To successfully connect an Azure data source to CloudTuner it is needed to
 
@@ -116,11 +116,11 @@ To successfully connect an Azure data source to CloudTuner it is needed to
 
 When the fields are filled in, click the **Connect** button.
 
-Please contact our Support Team at [support@hystax.com](https://hystax.com/documentation/optscale/e2e_guides/) if you have any questions regarding the described configuration flow.
+Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
 
 ## Tenant
 
-Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. If they are not, go to the [Collect the required data](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#collect-the-required-data-tenant) section before proceeding to [Connect to CloudTuner](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#connect-to-optscale-tenant).
+Before connecting, ensure that **Subscription ID**, **Directory (tenant) ID**, **Application (client) ID**, and a **Secret** are available. If they are not, go to the [Collect the required data](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#collect-the-required-data-2) section before proceeding to [Connect to CloudTuner](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#connect-to-cloudtuner-2).
 
 ### Collect the required data
 
@@ -154,8 +154,8 @@ Secret's value is hidden shortly after its creation. Make sure to copy it in a s
 
 Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **Azure** → choose the **Tenant** connection type.
 
-![connect_azure_tenant](https://hystax.com/documentation/optscale/_static/screens/onboarding/connect_azure_tenant.png)
+![connect_azure_tenant](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/azuretenantcloud.png)
 
-Fill in the **Application (client) ID**, **Directory (tenant) ID**, and **Secret** fields with the data saved on the [Collect the required data](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#collect-the-required-data_1) step. Click the **Connect** button.
+Fill in the **Application (client) ID**, **Directory (tenant) ID**, and **Secret** fields with the data saved on the [Collect the required data](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure#collect-the-required-data-2) step. Click the **Connect** button.
 
-Please contact our Support Team at [support@hystax.com](https://hystax.com/documentation/optscale/e2e_guides/) if you have any questions regarding the described configuration flow.
+Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.

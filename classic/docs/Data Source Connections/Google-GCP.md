@@ -3,7 +3,7 @@ title: Google Cloud - GCP
 ---
 ## Google Cloud project
 
-Before connecting, enable billing export, prepare a role for CloudTuner, create service account, and generate API key. If this has not been completed, refer to the [Configure the project](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#configure-the-project) section before proceeding to [Connect to CloudTuner](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#connect-to-optscale).
+Before connecting, enable billing export, prepare a role for CloudTuner, create service account, and generate API key. If this has not been completed, refer to the [Configure the project](https://docs.cloudtuner.ai/Data%20Source%20Connections/Google-GCP#configure-the-project) section before proceeding to [Connect to CloudTuner](https://docs.cloudtuner.ai/Data%20Source%20Connections/Google-GCP#connect-to-cloudtuner).
 
 ### Configure the project
 
@@ -18,7 +18,7 @@ As the result you have a new table in your BigQuery project. Note the names of t
 - Run the following command in GCP CLI:
 	```js
 	gcloud iam roles create
-	optscale_connection_role \--project=hystaxcom
+	cloudtuner_connection_role \--project=cloudtunercom
 	\--permissions=bigquery.jobs.create, bigquery.tables.getData, compute.addresses.list, 
 	compute.addresses.setLabels, compute.disks.list, compute.disks.setLabels, compute.firewalls.list, 
 	compute.globalAddresses.list, compute.instances.list, compute.instances.setLabels, compute.images.list, 
@@ -65,15 +65,15 @@ As the result you have a new table in your BigQuery project. Note the names of t
 
 Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **GCP** → choose the **Project** connection type.
 
-![gcp_connection_form](https://hystax.com/documentation/optscale/_static/screens/onboarding/gcp/gcp_connection_form.png)
+![gcp_connection_form](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/gcpcloudaccount.png)
 
 Fill in the fields, download a API key file. Click the **Connect** button.
 
-Please contact our Support Team at [support@hystax.com](https://hystax.com/documentation/optscale/e2e_guides/) if you have any questions regarding the described configuration flow.
+Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
 
 ## Google Cloud tenant
 
-Before connecting, prepare a role for CloudTuner, create service account, and generate API key. If this has not been completed, refer to the [Configure the project](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#configure-the-tenant) section before proceeding to [Connect to CloudTuner](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#connect-to-optscale_1).
+Before connecting, prepare a role for CloudTuner, create service account, and generate API key. If this has not been completed, refer to the [Configure the project](https://docs.cloudtuner.ai/Data%20Source%20Connections/Google-GCP#configure-the-tenant) section before proceeding to [Connect to CloudTuner](https://docs.cloudtuner.ai/Data%20Source%20Connections/Google-GCP#connect-to-cloudtuner-1).
 
 ### Configure the tenant
 
@@ -84,7 +84,7 @@ Make some preparations steps before connect a new GCP data source in CloudTuner,
 - Run the following command in GCP CLI:
 	```js
 	gcloud iam roles create
-	optscale_connection_role \--project=hystaxcom
+	cloudtuner_connection_role \--project=cloudtunercom
 	\--permissions=bigquery.jobs.create, bigquery.tables.getData, compute.addresses.list, 
 	compute.addresses.setLabels, compute.disks.list, compute.disks.setLabels, compute.firewalls.list, 
 	compute.globalAddresses.list, compute.instances.list, compute.instances.setLabels, compute.images.list, 
@@ -133,9 +133,9 @@ Make some preparations steps before connect a new GCP data source in CloudTuner,
 
 Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **GCP** → choose the **Tenant** connection type.
 
-![connect_gcp_tenant](https://hystax.com/documentation/optscale/_static/screens/onboarding/connect_gcp_tenant.png)
+![connect_gcp_tenant](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/gcpcloudconnecttenant.png)
 
 Fill in the fields, upload a API key file. Click the **Connect** button.
 
-Please contact our Support Team at [support@hystax.com](https://hystax.com/documentation/optscale/e2e_guides/) if you have any questions regarding the described configuration flow.
+Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
 
