@@ -1,5 +1,5 @@
 ---
-title: Recommendations Page Overview
+title: Page Overview
 ---
 
 CloudTuner features a set of automated tools for ongoing optimization of registered Data Sources. The section is intended to help maintain awareness of the less apparent deficiencies of the infrastructure like configuration flaws and security risks.
@@ -8,7 +8,7 @@ CloudTuner features a set of automated tools for ongoing optimization of registe
 
 There are two types of recommendations that are featured in CloudTuner: savings, security. Additionally, there is an option to view critical, non-empty, and all recommendations. Refine the recommendations using the Categories filter if necessary. By default, all recommendations are displayed.
 
-![categories](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/categories.png)
+![categories](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/aiinsightsdropdown.png)
 
 In addition to filtering by categories, the page allows selection of Data Sources and Applicable services.
 
@@ -20,7 +20,7 @@ Use Summary Cards to get an at-a-glance overview of important details, such as t
 
 This icon shows that you can click on the Summary Card to get detailed information.
 
-![summary_cards](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/summary_cards.png)
+![summary_cards](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/summarycard.png)
 
 ### Color schema
 
@@ -34,11 +34,18 @@ A color appears when there are items requiring attention.
 
 In all other situations, the card is white.
 
-Detailed instructions on [how to use recommendation cards](https://hystax.com/how-to-use-recommendation-cards-in-optscale/) find on our web-site.
+### How to use recommendation cards in Cloud tuner ?
+ 
+ 
+Recommendation cards are typically user interface elements that provide personalized suggestions to users based on their behavior, preferences, or other relevant data. These cards are commonly seen in various digital environments, such as e-commerce platforms, streaming services, and content websites. The purpose of recommendation cards is to enhance user experience, increase engagement, and drive conversion rates by suggesting products, services, or content that users will likely find appealing.
+
+The Cloudtuner team created a particular page with cards for your convenience. The cards are designed to be visually appealing and catch your eye. They usually include a brief description and other pertinent information to help you assess the situation quickly.
+
+The most straightforward interaction is clicking or tapping on a card, which leads to more detailed information about the recommended item.
 
 All cards have the same structure. Let's look at the structure of the card using 'Obsolete Images' as an example:
 
-![card_structure](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/card_structure.png)
+![card_structure](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cardstructurerecommendations.png)
 
 Name, applicable services, description, and total possible savings (or total count of items) are to inform you. A list of items with maximum savings, a list of all items, and actions are clickable.
 
@@ -66,6 +73,6 @@ Note
 
 New settings will be applied on the next recommendations check.
 
-![settings](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/settings.png)
+![settings](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/settingsaiinsights.png)
 
 ![](https://hystax.com/documentation/optscale/images/snipp4.svg)
