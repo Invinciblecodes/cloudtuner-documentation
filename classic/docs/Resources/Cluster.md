@@ -9,7 +9,7 @@ Sub-resources are added into clusters automatically based on **cluster type** de
 
 To set up a new cluster, go to the **Configure cluster types** on the right-hand corner of the **Resources** page and click the **Add** button on the **Cluster Types** page.
 
-![main_cluster](https://hystax.com/documentation/optscale/_static/screens/clusters/main_cluster.png)
+![main_cluster](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cluster.png)
 
 Please define new cluster type name (will be used as the type of created cluster resources) and clusterization tag key. Once created, this cluster type will be applied to newly discovered resources. Existing resources can be clusterized using the **Re-apply cluster types** action.
 
@@ -18,7 +18,7 @@ A definition consists of the following two parameters:
 - **cluster type name** - must be unique within the organization.
 - **tag key** - a common parameter to be used for consolidating sub-resources.
 
-![add_cluster](https://hystax.com/documentation/optscale/_static/screens/clusters/add_cluster.png)
+![add_cluster](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/addcluster.png)
 
 Cluster type definitions are automatically applied to resources upon their discovery in CloudTuner (through billing or direct discovery) for consolidation even before any existing assignment rules take effect.
 
@@ -30,7 +30,7 @@ A cluster type can be deleted from the same page. Upon deletion, all clusters of
 
 In the Resources section, items that are part of a cluster are marked with thesymbol to distinguish them among usual resources.
 
-![cluster_icon](https://hystax.com/documentation/optscale/_static/screens/clusters/cluster_icon.png)
+![cluster_icon](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resourcepage.png)
 
 Clicking on their names will bring up the **Cluster Details** page that lists all included sub-resources, their total expenses, and constraints that are applied throughout the cluster.
 

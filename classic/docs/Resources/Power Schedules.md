@@ -43,15 +43,15 @@ Go to the **Power Schedules** page to view a summary of existing schedules. Find
 
 Use the **ADD** button to add a schedule. A user with the Organization manager role can perform this action.
 
-![power_schedules_main](https://hystax.com/documentation/optscale/_static/screens/power_schedules/power_schedules_main.png)
+![power_schedules_main](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschedules.png)
 
-Click the schedule name to [get details](https://hystax.com/documentation/optscale/power_schedules.html#get-details).
+Click the schedule name to [get details](https://docs.cloudtuner.ai/Resources/Power%20Schedules#get-details).
 
 ### Get details
 
 Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table.
 
-![details](https://hystax.com/documentation/optscale/_static/screens/power_schedules/details.png)
+![details](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduledetails.png)
 
 Use Summary Cards to get an at-a-glance overview of important details, such as the last execution time, the total number of resources associated with the schedule, the time zone in which the schedule operates, and the validity period.
 
@@ -73,11 +73,11 @@ Note
 
 Only organizational managers can add a power schedule.
 
-![add](https://hystax.com/documentation/optscale/_static/screens/power_schedules/add.png)
+![add](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschedulesaddbutton.png)
 
 Enter the name, select a time zone, and specify the initiation and expiration dates. Set triggers. By default, each schedule must have at least one trigger. Use the **ADD TRIGGER** button to add additional triggers.
 
-![power_schedules_add](https://hystax.com/documentation/optscale/_static/screens/power_schedules/power_schedules_add.png)
+![power_schedules_add](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschaddition.png)
 
 Click **CREATE** to accept the changes.
 
@@ -89,11 +89,11 @@ Only organizational managers can add instances to the power schedule.
 
 Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table → go to the **Instances** tab → click **ADD INSTANCES TO SCHEDULE**.
 
-![add_instances](https://hystax.com/documentation/optscale/_static/screens/power_schedules/add_instances.png)
+![add_instances](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduledetails.png)
 
 Select the **Data Sources**, use filters and search to narrow the results. Check the box next to the instances you want to add.
 
-![add_instances](https://hystax.com/documentation/optscale/_static/screens/power_schedules/add_instances_dlg.png)
+![add_instances](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduleaddschedule.png)
 
 Click **ADD**.
 
@@ -105,7 +105,7 @@ Only organizational managers can remove instances from the power schedule.
 
 Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table → go to the **Instances** tab → check the box next to the instance you want to remove → click **REMOVE INSTANCES FROM SCHEDULE**.
 
-![remove_instances](https://hystax.com/documentation/optscale/_static/screens/power_schedules/remove_instances.png)
+![remove_instances](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduleremoveinstance.png)
 
 ### Activate/deactivate
 
@@ -117,11 +117,11 @@ There are two ways how to activate/deactivate the schedule:
 
 1\. Go to the **Policies** section → **Power Schedules** page → find the schedule you want to activate/deactivate in the table → click to activate or to deactivate in the **Actions** column.
 
-![power_schedules_activate_main](https://hystax.com/documentation/optscale/_static/screens/power_schedules/power_schedules_activate_main.png)
+![power_schedules_activate_main](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduleactivate.png)
 
 2\. Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table → click or at the top right of the page.
 
-![activate](https://hystax.com/documentation/optscale/_static/screens/power_schedules/activate.png)
+![activate](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschedulearchive.png)
 
 ### Edit
 
@@ -131,11 +131,11 @@ Only organizational managers can edit a power schedule.
 
 Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table → click the **EDIT** button at the top right of the page.
 
-![edit](https://hystax.com/documentation/optscale/_static/screens/power_schedules/edit.png)
+![edit](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschedulearchive.png)
 
 Update the fields, add or remove triggers.
 
-![power_schedules_edit](https://hystax.com/documentation/optscale/_static/screens/power_schedules/power_schedules_edit.png)
+![power_schedules_edit](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduleedit.png)
 
 Click **EDIT** to accept the changes.
 
@@ -149,11 +149,11 @@ There are two ways how to delete the schedule:
 
 1\. Go to the **Policies** section → **Power Schedules** page → find the schedule you want to delete in the table → click at the top right of the page.
 
-![power_schedules_delete_main](https://hystax.com/documentation/optscale/_static/screens/power_schedules/power_schedules_delete_main.png)
+![power_schedules_delete_main](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerscheduledelete.png)
 
 2\. Go to the **Policies** section → **Power Schedules** page → click on the schedule name in the table → click the **DELETE** button at the top right of the page.
 
-![delete](https://hystax.com/documentation/optscale/_static/screens/power_schedules/delete.png)
+![delete](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/powerschedulearchive.png)
 
 Confirm the action.
 
