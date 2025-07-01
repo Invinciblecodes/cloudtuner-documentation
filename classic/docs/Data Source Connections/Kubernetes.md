@@ -46,28 +46,11 @@ There is a difference in instructions when a Kubernetes Data Source is connected
 
 ![kubernetes_chart_installation_prod](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/commandkubernets.png)
 
-Note
+ **Note:**  
+ Specify the user's password in place of `<password_specified_during_data_source_connection>`.
+ 
+ **⚠️ Warning:**  
+ Please wait for the metric generation process to complete. This typically takes **approximately one hour**.
 
-Specify the user's password instead of the < **password\_specified\_during\_data\_source\_connection** > phrase.
-
-Warning
-
-Please await the completion of the metric generation process, which typically requires approximately one hour.
-
-<!-- #### Open Source CloudTuner
-
-![kubernetes_instuctions_list_install](https://hystax.com/documentation/optscale/_static/screens/onboarding/kubernetes_instructions_list_install.png)
-
-![kubernetes_chart_installation](https://hystax.com/documentation/optscale/_static/screens/onboarding/kubernetes_chart_installation.png) -->
-
-Note
-
-Specify the user's password instead of the < **password\_specified\_during\_data\_source\_connection** > phrase.
-
-Warning
-
-Please await the completion of the metric generation process, which typically requires approximately one hour.
-
-<!-- For a more detailed description, see [instructions](https://github.com/hystax/helm-charts/tree/main/charts/kube-cost-metrics-collector). -->
 
 ![](https://hystax.com/documentation/optscale/e2e_guides/images/snipp4.svg)

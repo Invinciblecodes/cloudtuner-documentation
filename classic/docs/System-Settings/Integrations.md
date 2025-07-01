@@ -53,11 +53,11 @@ Slack has become a popular communication tool that brings Managers, DevOps and E
 
 To add our app to your Workspace in Slack and connect it to your CloudTuner account:
 
-1\. Access CloudTuner's UI ([https://cloudtuner.ai/](https://cloudtuner.ai/), by default).
+1\. Access CloudTuner's UI ([https://dashboard.cloudtuner.ai/](https://dashboard.cloudtuner.ai/), by default).
 
 2\. Log in as the user that you want to assign the Slack app to. (Re-login as a preferred user to get Slack notifications depending on the Organization Role).
 
-3\. Go to `<optscale_url>`/slacker/v2/install ([https://cloudtuner.ai/](https://cloudtuner.ai/slacker/v2/install)).
+3\. Go to `<optscale_url>`/slacker/v2/install ([https://dashboard.cloudtuner.ai/](https://dashboard.cloudtuner.ai/slacker/v2/install)).
 
 4\. Click on the **Add to Slack** button.
 
