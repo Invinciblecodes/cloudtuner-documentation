@@ -15,11 +15,11 @@ CloudTuner allows you to manage assignment rules by viewing, creating, editing, 
 
 Go to the **Pools** page and click on the **Configure Assignment Rules** button.
 
-![poolspage](https://hystax.com/documentation/optscale/_static/screens/assign_resources/poolspage.png)
+![poolspage](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resourceassignmentpools.png)
 
 **Assignment Rules** is a centralized interface for viewing and managing all existing assignment rules in the system. This page provides a list of rules displayed in a tabular format for easy navigation and interaction. Users can view the status of each rule and take appropriate actions directly from this page.
 
-![assignment_rules](https://hystax.com/documentation/optscale/_static/screens/assign_resources/assignment_rules.png)
+![assignment_rules](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resourceassignmentrules.png)
 
 All assignment rules are displayed in a table, allowing easy browsing and management. The general actions **Add** and **Re-apply Ruleset** are placed above the table. Search functionality is available based on criteria such as *Name*, *Assigned to*, *Conditions*, and *Priority*. For ease of navigation, the page supports pagination, allowing to view assignment rules in manageable chunks. All data columns are sortable.
 
@@ -35,15 +35,15 @@ Use the **Actions** column buttons to manage rules:
 
 \- *prioritize* - sets the rule priority to the highest. The priority of the other rules will be decreased by one
 
-![promote](https://hystax.com/documentation/optscale/_static/screens/assign_resources/promote.png) - *promote* - increases rule priority by 1. The rule will be swapped with the previous rule.
+![promote](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/promote.png)  - *promote* - increases rule priority by 1. The rule will be swapped with the previous rule.
 
-\- *demote* - decreases rule priority by 1. The rule will be swapped with the rule behind it.
+![demote](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/demote.png) - *demote* - decreases rule priority by 1. The rule will be swapped with the rule behind it.
 
-\- *deprioritize* - assigns a rule with the lowest priority across the given organization. All other affected rules will be updated.
+![deprioritize](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/deprioritize.png) - *deprioritize* - assigns a rule with the lowest priority across the given organization. All other affected rules will be updated.
 
-![edit](https://hystax.com/documentation/optscale/_static/screens/assign_resources/edit.png) - *edit* - allows modification of an existing rule. Adjust conditions and assignment details, ensuring that the rule remains accurate and up to date with changing requirements. A rule can be enabled/disabled by ticking the **Active** checkbox. Active rules are marked with green dots next to their names, inactive ones are marked with grey dots.
+![edit](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/edit.png) - *edit* - allows modification of an existing rule. Adjust conditions and assignment details, ensuring that the rule remains accurate and up to date with changing requirements. A rule can be enabled/disabled by ticking the **Active** checkbox. Active rules are marked with green dots next to their names, inactive ones are marked with grey dots.
 
-\- *delete* - removes the rule from the list.
+![delete](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/delete.png) - *delete* - removes the rule from the list.
 
 Note
 
@@ -57,7 +57,7 @@ There are two ways to add an Assignment Rule: through the **Assignment Rules** p
 
 The **Add Automatic Resource Assignment Rule Form** is used to define new assignment rules for automatic resource allocation based on specified conditions. The form is divided into sections to collect relevant information for creating an assignment rule, including the rule's name, status, conditions, and assignment targets.
 
-![add_rule](https://hystax.com/documentation/optscale/_static/screens/assign_resources/add_rule.png)
+![add_rule](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resourceassignmentaddnew.png)
 
 The list of available **Conditions**:
 
@@ -80,13 +80,13 @@ A newly created rule is always prioritized across the organization and is put at
 
 ### Resources page
 
-This form is a specialized version of the **Add Automatic Resource Assignment Rule Form** from the [**Assignment Rules** page](https://hystax.com/documentation/optscale/assign_resources.html#assignment-rules-page). The page is accessible by clicking the **Add Assignment Rule** button directly from a specific resource's details page.
+This form is a specialized version of the **Add Automatic Resource Assignment Rule Form** from the [**Assignment Rules** page](https://docs.cloudtuner.ai/Resources/Resource%20Assignment#assignment-rules-page). The page is accessible by clicking the **Add Assignment Rule** button directly from a specific resource's details page.
 
-![add_rule_resources](https://hystax.com/documentation/optscale/_static/screens/assign_resources/resources_tab.png)
+![add_rule_resources](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resourceassignmentresourcepage.png)
 
 Its purpose is to simplify the creation of assignment rules for a particular resource by pre-filling relevant fields with the resource's existing data.
 
-![add_rule_resources](https://hystax.com/documentation/optscale/_static/screens/assign_resources/add_rule_resources.png)
+![add_rule_resources](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/addassignmentrules.png)
 
 Add **Conditions** according your needs, specify a *Name*, *Target Pool*, and *Owner*.
 
@@ -100,7 +100,7 @@ The re-check process takes some time.
 
 To start the process, click the **Re-apply Rules** button. A side modal opens.
 
-![reapply_ruleset](https://hystax.com/documentation/optscale/_static/screens/assign_resources/reapply_ruleset.png)
+![reapply_ruleset](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/reapplyruleset.png)
 
 Select whether you want to re-apply to the entire organization or a specific pool. In the second selection, specify a pool and, if necessary, enable the **With sub-pools** checkbox. The **Run** button starts the process and closes the modal, while the request continues to run in the background. The **Cancel** button simply closes the modal without performing any actions.
 
@@ -112,7 +112,7 @@ This feature provides quick access to the assignment rules that apply specifical
 
 To find a list of assignment rules associated with the selected pool, open the detailed page of the desired pool from the **Pools** page.
 
-![reapply_ruleset](https://hystax.com/documentation/optscale/_static/screens/assign_resources/poolrelated_assignment_rules.png)
+![reapply_ruleset](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/poolrelatedassignmentrules.png)
 
 Each rule entry includes the *Name*, *Owner*, and *Conditions* of the rule, providing a clear overview of the rule configurations.
 
@@ -141,13 +141,13 @@ As of now, CloudTuner provides solely notifications about violated constraints a
 
 Navigate to the desired asset by selecting the appropriate resource on the **Resources** page.
 
-![resources](https://hystax.com/documentation/optscale/_static/screens/resource_constraints/resources.png)
+![resources](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/resources.png)
 
 To assign constraints to resources, go to the **Constraints** tab on the selected resource's page.
 
 On the **Constraints** tab, use the slider to enable/disable the current setting. Click on the image below the constraint's name and fill in the values for **TTL** or the **Daily expense limit** in the fields.
 
-![constraint_resources](https://hystax.com/documentation/optscale/_static/screens/resource_constraints/constraint_resources.png)
+![constraint_resources](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/constraints.png)
 
 If a resource doesn't have a specific constraint set, it inherits the policies from its Pool. However, resource owner or manager can override an existing Pool constraint policy for an individual resource by issuing a custom constraint for any given asset.
 
@@ -157,8 +157,7 @@ This is a more high-level setting that facilitates the flow in a way that allows
 
 Click on **Pools** in the left sidebar and choose a Pool group or its sub Pool.
 
-![constraint_budget](https://hystax.com/documentation/optscale/_static/screens/resource_constraints/constraint_budget.png)
-
+![constraint_budget](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/constraints.png)
 Click on the image next to a constraint's name and fill in the values for **TTL** or the **Daily expense limit** in the empty fields. Use the slider to enable/disable the current setting.
 
 Note
@@ -175,13 +174,13 @@ An employee should have the Manager role in the parent of the Pool that they wan
 
 Use button from the *Actions* menu to delete a Pool.
 
-![budget_actions](https://hystax.com/documentation/optscale/_static/screens/resource_constraints/budget_actions.png)
+![budget_actions](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/deletepools.png)
 
 Warning
 
 This action is irreversible. The solution will ask for confirmation before deletion.
 
-![delete_budget](https://hystax.com/documentation/optscale/_static/screens/resource_constraints/delete_budget.png)
+![delete_budget](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/deletepool.png)
 
 When a Pool is deleted:
 

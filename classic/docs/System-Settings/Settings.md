@@ -8,7 +8,7 @@ title: Settings
 
 The **Email Notifications** tab provides users with an interface to manage various email alerts.
 
-![email_notifications](https://hystax.com/documentation/optscale/_static/screens/system/email_notifications.png)
+![email_notifications](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/settings.png)
 
 This setting is available to all users. However, users can only interact with email templates relevant to their role and permissions. Unavailable templates are not displayed in the tab.
 

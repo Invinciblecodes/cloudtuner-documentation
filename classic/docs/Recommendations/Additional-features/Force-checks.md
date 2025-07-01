@@ -8,6 +8,6 @@ At the moment, a check-up is performed every 3 hours and the results are reflect
 
 Alternatively, find the last and next check time in the Summary Cards.
 
-![recommendations_hub](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/recommendations_hub.png)
+![recommendations_hub](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/forcecheck.png)
 
 ![](https://hystax.com/documentation/optscale/images/snipp4.svg)

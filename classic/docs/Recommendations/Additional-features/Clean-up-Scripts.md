@@ -75,7 +75,7 @@ aliyun configure set --read-timeout 20  --connect-timeout 20 --retry-count 3
 
 3\. Download the script from the corresponding subsection of the CloudTuner's **Recommendations** page.
 
-![script_download](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/script_download.png)
+![script_download](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/scriptdownload.png)
 
 4\. From the same page, download the json file containing a list of all resources that are recommended for deletion.
 

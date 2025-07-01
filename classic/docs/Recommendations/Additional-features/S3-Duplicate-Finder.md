@@ -14,7 +14,7 @@ Once a check is initiated, CloudTuner will scan through every file in the select
 
 To get a brief overview of duplicates, go to the **Recommendations** section of the menu and view the rightmost card in **Summary cards**.
 
-![s3_duplicate_finder](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_duplicate_finder.png)
+![s3_duplicate_finder](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3duplicateshighlight.png)
 
 It displays duplicates found during the last check and potential monthly savings. The card may have different states depending on the conditions. The text `S3 Duplicates: -` indicates that no checks have been successfully completed or started. If the last check was successful, `Duplicates found during last check` and `Possible monthly savings` are displayed.
 
@@ -24,7 +24,7 @@ The card is clickable and leads you to the **S3 Duplicate Finder** page.
 
 The **S3 Duplicate Finder** page showcases a table of all check launches, providing the option to initiate a new check, and configure settings.
 
-![s3_last_successful_check](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_duplicate_finder_details.png)
+![s3_last_successful_check](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3duplicates.png)
 
 The tables present details, including the check's initialization time, a list of scanned buckets with corresponding resource links, the total count of duplicated objects across all buckets, their sizes, and the overall savings:
 
@@ -38,7 +38,7 @@ The tables present details, including the check's initialization time, a list of
 - The **Duplicates** column represents the number of duplicate objects found during a check.
 - The **Savings** column indicates the potential cost savings for removing the identified duplicates.
 
-Click an item to [view detailed information about the run check](https://hystax.com/documentation/optscale/s3duplicates.html#run-check-results-overview).
+Click an item to [view detailed information about the run check](https://docs.cloudtuner.ai/Recommendations/Additional-features/S3-Duplicate-Finder#run-check-results-overview).
 
 ## Actions
 
@@ -52,7 +52,7 @@ Only a user with the Organization manager role can perform a run check.
 
 2\. Click the **Run check** button to open a side modal.
 
-![s3_run_check](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_run_check.png)
+![s3_run_check](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3dupruncheck.png)
 
 3\. Configure and initiate a new check:
 
@@ -62,7 +62,7 @@ Only a user with the Organization manager role can perform a run check.
 
 4\. Click **Run** to start the check.
 
-A new run check appears in the table marked as **Scheduled at *`<DateTime of Start>`***. The check takes some time to complete. Wait until its status changes to **Completed**, then click it to [view detailed information](https://hystax.com/documentation/optscale/s3duplicates.html#run-check-results-overview).
+A new run check appears in the table marked as **Scheduled at *`<DateTime of Start>`***. The check takes some time to complete. Wait until its status changes to **Completed**, then click it to [view detailed information](https://docs.cloudtuner.ai/Recommendations/Additional-features/S3-Duplicate-Finder#run-check-results-overview).
 
 ### Update Settings
 
@@ -74,7 +74,7 @@ Only a user with the Organization manager role can update the settings.
 
 2\. Click the **Settings** button to open a side modal.
 
-![s3_settings](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_settings.png)
+![s3_settings](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3dupsettings.png)
 
 3\. Set the threshold rules to colorize cells in the cross-duplicate matrix:
 
@@ -91,26 +91,26 @@ Go to **Recommendations** page → click the rightmost card in the **Summary Car
 
 Click the completed run check.
 
-![s3_duplicate_finder_details_01](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_duplicate_finder_details_01.png)
+![s3_duplicate_finder_details_01](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3duplicates.png)
 
 Check **Summary Cards** for general information, including total savings, the number of checked objects, the number of duplicate objects, and their size.
 
-![s3_duplicate_finder_matrix](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_duplicate_finder_matrix.png)
+![s3_duplicate_finder_matrix](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3duplicatesruncheck.png)
 
 The cross-duplicate matrix displays the amount of duplicates between specific buckets. The **From** buckets are listed in the first column, while the **To** buckets appear in the first row. The intersections of rows and columns show potential monthly savings.
 
-![s3_matrix](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_matrix.png)
+![s3_matrix](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/s3runcheckexplained.png)
 
 - **From** display the bucket name and potential monthly savings. Each cell is clickable — use it to view the number and size of duplicate objects.
-	![s3_from_bucket_duplicates](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_from_bucket_duplicates.png)
+	<!-- ![s3_from_bucket_duplicates](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_from_bucket_duplicates.png) -->
 - **To** display only bucket names.
 - **Cross-cells** (From-To intersection) display potential monthly savings.
 	- Color scheme:
 		- **Green**: indicates savings within the acceptable threshold.
-		- **Yellow**: represents savings that exceed the **Requiring Attention** threshold set in [settings](https://hystax.com/documentation/optscale/s3duplicates.html#update-settings).
-		- **Red**: highlights savings that surpass the **Critical** threshold set in [settings](https://hystax.com/documentation/optscale/s3duplicates.html#update-settings).
+		- **Yellow**: represents savings that exceed the **Requiring Attention** threshold set in [settings](https://docs.cloudtuner.ai/Recommendations/Additional-features/S3-Duplicate-Finder#update-settings).
+		- **Red**: highlights savings that surpass the **Critical** threshold set in [settings](https://docs.cloudtuner.ai/Recommendations/Additional-features/S3-Duplicate-Finder#update-settings).
 	- Click on a cross-cell to view the bucket list, duplicate size, potential savings, and download the objects list in the **Cross Bucket Duplicates** side modal.
-		![s3_cross_bucket_duplicates](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_cross_bucket_duplicates.png)
+		<!-- ![s3_cross_bucket_duplicates](https://hystax.com/documentation/optscale/_static/screens/optscales_recommendations/s3_cross_bucket_duplicates.png) -->
 		The object list is downloaded in **.xlsx** format. The file is structured to clearly display duplicates, the buckets they reside in, their paths (key column), and their sizes. The tag column serves as a reference for identifying duplicates—objects with the same tag value are duplicates. By default, the table is sorted by the tag column, ensuring easy-to-use data as soon as you open it.
 
 ![](https://hystax.com/documentation/optscale/images/snipp4.svg)

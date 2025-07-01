@@ -20,7 +20,7 @@ Go to the **Quotas & Budgets** page to get a brief description of created quotas
 
 Use the **Add** button to add a quota or budget. A user with the Organization manager role can perform this action.
 
-![page](https://hystax.com/documentation/optscale/_static/screens/quotas_and_budgets/page.png)
+![page](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/policyandquota.png)
 
 - Below the quota/budget **Name**, the time of the last check is shown. An exclamation mark appears if the restriction is violated. Hover over it to see a hint.
 - The **Status** field is a progress bar that displays the current resource count or expense value. The quota itself is shown in the **Description** field. The progress bar's fill level indicates how close the current value is to the set threshold. The color of the progress bar depends on the ratio of the current value to the quota or budget:
@@ -47,7 +47,7 @@ To view detailed information about an item, or to edit or delete it, click on it
 
 If an anomaly occurs, the Organization manager receives a notification email. Click the **Go to CloudTuner** button to be automatically redirected to the solution's **Quotas and Budgets** page.
 
-![alert_an_email](https://hystax.com/documentation/optscale/_static/screens/quotas_and_budgets/alert_an_email.png)
+![alert_an_email](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/emailtemplateploicyquota.png)
 
 ## Add new policy
 
@@ -57,7 +57,7 @@ Note
 
 Only a user with the Organization manager role can add a new policy.
 
-![create_quota_or_budget](https://hystax.com/documentation/optscale/_static/screens/quotas_and_budgets/create_quota_or_budget.png)
+![create_quota_or_budget](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/addpolicyquota.png)
 
 Enter the name, select the type of the policy:
 

@@ -57,7 +57,7 @@ Naturally, every cloud platform differs in the way the above data is obtained.
 - [https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-describedbinstances](https://www.alibabacloud.com/help/en/rds/developer-reference/api-rds-2014-08-15-describedbinstances)
 - [https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips)
 
-Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_alibaba.html#connecting-an-alibaba-account-to-optscale) for more details.
+<!-- Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_alibaba.html#connecting-an-alibaba-account-to-optscale) for more details. -->
 
 ### Amazon Web Services (AWS)
 
@@ -74,7 +74,7 @@ Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_a
 
 3\. **Amazon Cloud Watch** is used as the source of monitoring data.
 
-Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_aws.html#automatic-billing-data-import-in-aws) for more details.
+Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Amazon-AWS#configure-policies-and-user) for more details.
 
 ### Azure
 
@@ -91,7 +91,7 @@ Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_a
 
 3\. Cloud's **Monitoring service** is used as the source of all monitoring data.
 
-Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_azure.html#connecting-an-azure-account-to-optscale) for more details.
+Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Microsoft-Azure/#connect-to-cloudtuner) for more details.
 
 ### GCP
 
@@ -107,37 +107,39 @@ Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_a
 - [https://cloud.google.com/storage/docs/json_api/v1/buckets/list](https://cloud.google.com/storage/docs/json_api/v1/buckets/list)
 - [https://cloud.google.com/compute/docs/reference/rest/v1/addresses/list](https://cloud.google.com/compute/docs/reference/rest/v1/addresses/list)
 
-Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_gcp.html#connecting-a-gcp-account-to-optscale) for more details.
+Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Google-GCP) for more details.
 
 ### Kubernetes
 
-To enable cost management and FinOps capabilities for your Kubernetes cluster, you need to deploy a software component that collects information about running pods and converts it into cost metrics. Refer to [this guide](https://hystax.com/documentation/optscale/e2e_guides/e2e_kubernetes.html#kubernetes) for more details.
+To enable cost management and FinOps capabilities for your Kubernetes cluster, you need to deploy a software component that collects information about running pods and converts it into cost metrics. Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Kubernetes) for more details.
 
-This software is open-source, free of malware, and requires read-only access to Kubernetes metadata and performance metrics. Please review the code and find a detailed description on [GitHub](https://github.com/hystax/helm-charts/tree/main/charts/kube-cost-metrics-collector).
+This software is open-source, free of malware, and requires read-only access to Kubernetes metadata and performance metrics. 
 
-![menu](https://hystax.com/documentation/optscale/_static/screens/about/menu.png)
+<!-- Please review the code and find a detailed description on [GitHub](https://github.com/hystax/helm-charts/tree/main/charts/kube-cost-metrics-collector). -->
 
-- **Home**. Find your organization's current spending and projected expenses for the upcoming month. Details about [Home page](https://hystax.com/documentation/optscale/home_page.html).
-- **Recommendations**. Get practical information about suggesting services and features available in CloudTuner. Find a brief description and other pertinent information in the cards to help you assess the situation quickly. [How to use recommendation cards](https://hystax.com/how-to-use-recommendation-cards-in-optscale/).
+![menu](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/sidebar.png)
+
+- **Home**. Find your organization's current spending and projected expenses for the upcoming month. Details about [Home page](https://docs.cloudtuner.ai/Home%20Page).
+- **Recommendations**. Get practical information about suggesting services and features available in CloudTuner. Find a brief description and other pertinent information in the cards to help you assess the situation quickly. [How to use recommendations](https://docs.cloudtuner.ai/Recommendations/Page-overview).
 - **Resources**. Observe the expenses for all resources across all connected clouds within the organization for the selected period. Organize and categorize resources based on your specific requirements.
 - **Pools**. View pools with limits or projected expenses that require your attention. Manage pools using the available features on this page.
 - **Shared Environments**. This feature enables you to focus more on application logic rather than infrastructure management. Use this page to book cloud environments for specific periods to allow multiple users or applications to access and use the same underlying infrastructure.
 
-![menu_therest](https://hystax.com/documentation/optscale/_static/screens/about/menu_therest.png)
+![menu_therest](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/sidebartabs.png)
 
 - **FinOps**. View a breakdown chart that visualizes your expenses over time, get a visual or analytical representation of costs, and become familiar with the concepts of FinOps.
 - **Policies**. Identify and respond to unusual patterns or deviations from normal behavior, control costs and manage resources efficiently, implement robust tagging policies, and manage the resource lifecycle and automated power on/off schedules effectively.
 - **Sandbox**. Evaluate CPU and memory usage by k8s resources, view applied recommendations, and compare instance pricing across different clouds.
-- **System**. Assign roles to users for resource management, integrate with various services, view events, and manage [email notifications](https://hystax.com/documentation/optscale/settings.html#email-notifications).
+- **System**. Assign roles to users for resource management, integrate with various services, view events, and manage [email notifications](https://docs.cloudtuner.ai/System-Settings/Settings).
 
 ## Organization selector
 
-![organization_field](https://hystax.com/documentation/optscale/_static/screens/home_page/organization_field.png)
+![organization_field](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/dashboard.png)
 
 In case there are several organizations registered in CloudTuner that the user is considered to be a part of, clicking on the **Organization** field → **Organization overview** in the top right corner of the page will redirected to a new view containing a matrix of key information on each organization.
 
 Organizations that require attention and optimization are marked in red.
 
-![organization_overview](https://hystax.com/documentation/optscale/_static/screens/home_page/organization_overview.png)
+![organization_overview](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/organizationsoverview.png)
 
 On the right of the Organization selector find the **Documentation**, and **Product tour**

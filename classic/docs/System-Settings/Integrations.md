@@ -4,7 +4,7 @@ title: Integrations
 
 ## Integrations
 
-## Google Calendar
+<!-- ## Google Calendar
 
 Integrating Google Calendar to display shareable resource booking intervals as events allows users to view and manage availability in real time. Each booked interval appears as a Google Calendar event, making it easy to see open and reserved slots at a glance. This setup enables streamlined scheduling, letting users quickly check and share resource availability with others through a familiar calendar interface.
 
@@ -45,7 +45,7 @@ If you have an open-source CloudTuner, please use the `client_email` specified i
 
 ![google_connect](https://hystax.com/documentation/optscale/_static/screens/integrations/google_connect.png)
 
-3\. Click the **Connect** button to view your Shared Environment schedules directly in the Google Calendar.
+3\. Click the **Connect** button to view your Shared Environment schedules directly in the Google Calendar. -->
 
 ## Slack App
 
@@ -53,37 +53,37 @@ Slack has become a popular communication tool that brings Managers, DevOps and E
 
 To add our app to your Workspace in Slack and connect it to your CloudTuner account:
 
-1\. Access CloudTuner's UI ([https://my.optscale.com/](https://my.optscale.com/), by default).
+1\. Access CloudTuner's UI ([https://dashboard.cloudtuner.ai/](https://dashboard.cloudtuner.ai/), by default).
 
 2\. Log in as the user that you want to assign the Slack app to. (Re-login as a preferred user to get Slack notifications depending on the Organization Role).
 
-3\. Go to `<optscale_url>`/slacker/v2/install ([https://my.optscale.com/slacker/v2/install](https://my.optscale.com/slacker/v2/install)).
+3\. Go to `<optscale_url>`/slacker/v2/install ([https://dashboard.cloudtuner.ai/](https://dashboard.cloudtuner.ai/slacker/v2/install)).
 
 4\. Click on the **Add to Slack** button.
 
 5\. Click **Allow** on the next page to add the permissions and be redirected to the Slack desktop app or its browser version.
 
-![allow_slack](https://hystax.com/documentation/optscale/_static/screens/integrations/allow_slack.png)
+![allow_slack](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/permissionslack.png)
 
 6\. Once the application is installed in Slack, you will see a greeting message which includes a link to authorize the app in CloudTuner, so please follow it.
 
 Your CloudTuner account has been connected to the Slack app!
 
-![app_connected](https://hystax.com/documentation/optscale/_static/screens/integrations/app_connected.png)
+<!-- ![app_connected](https://hystax.com/documentation/optscale/_static/screens/integrations/app_connected.png) -->
 
 If the user is a member of several organizations in CloudTuner, the next step is to choose a default organization.
 
-![default_organization](https://hystax.com/documentation/optscale/_static/screens/integrations/default_organization.png)
+<!-- ![default_organization](https://hystax.com/documentation/optscale/_static/screens/integrations/default_organization.png) -->
 
 ### Listing resources
 
 To get a list of resources that have been assigned to you in the current organization, select **CloudTuner** in the **Apps** section and type in "resources".
 
-![list_resources](https://hystax.com/documentation/optscale/_static/screens/integrations/list_resources.png)
+<!-- ![list_resources](https://hystax.com/documentation/optscale/_static/screens/integrations/list_resources.png) -->
 
 By clicking the **Details** button to the right of any presented resource, you will receive a new message containing its full name, region, pool, owner as well as the amount of related expenses and constraints with the option to modify resource's current TTL via the **Update TTL** button.
 
-![update_ttl](https://hystax.com/documentation/optscale/_static/screens/integrations/update_ttl.png)
+<!-- ![update_ttl](https://hystax.com/documentation/optscale/_static/screens/integrations/update_ttl.png) -->
 
 Additionally, each message in the app contains a link to **CloudTuner web console** or the corresponding **Resource** page for a quick access to the main portal.
 
@@ -91,13 +91,13 @@ Additionally, each message in the app contains a link to **CloudTuner web consol
 
 To get a list of existing shareable resources (first 10 by name), select **CloudTuner** in the **Apps** section and type in "envs".
 
-![list_envs](https://hystax.com/documentation/optscale/_static/screens/integrations/list_envs.png)
+<!-- ![list_envs](https://hystax.com/documentation/optscale/_static/screens/integrations/list_envs.png) -->
 
 ### Listing organization
 
 To get a list of your organizations, select **CloudTuner** in the **Apps** section and type in "org".
 
-![list_org](https://hystax.com/documentation/optscale/_static/screens/integrations/list_org.png)
+<!-- ![list_org](https://hystax.com/documentation/optscale/_static/screens/integrations/list_org.png) -->
 
 The active organization is labeled "Active". To select another organization as active, click the **Choose** button to the organization's right.
 
@@ -113,13 +113,13 @@ Below are the instructions on how to include CloudTuner alerts into your Notific
 
 3\. Select the **Integrations** tab
 
-![channel_details](https://hystax.com/documentation/optscale/_static/screens/integrations/channel_details.png)
+![channel_details](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/slackappchannel.png)
 
-![add_apps](https://hystax.com/documentation/optscale/_static/screens/integrations/add_apps.png)
+![add_apps](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/slackintaddapp.png)
 
 4\. Select **CloudTuner** from the list of apps in your workspace. You will receive the following message
 
-![optscale_bot](https://hystax.com/documentation/optscale/_static/screens/integrations/optscale_bot.png)
+<!-- ![optscale_bot](https://hystax.com/documentation/optscale/_static/screens/integrations/optscale_bot.png) -->
 
 Now that the app is connected to the Notification channel, you can **create** additional alerts for your team:
 
@@ -131,11 +131,11 @@ Only users with the Manager Role can modify and update notifications.
 
 2\. You will receive a list of existing alerts, from which you can **Delete** or **Add alert**. Choose the latter option to add a new one.
 
-![alerts](https://hystax.com/documentation/optscale/_static/screens/integrations/alerts.png)
+<!-- ![alerts](https://hystax.com/documentation/optscale/_static/screens/integrations/alerts.png) -->
 
 3\. In the new window, select the desired pool that should be tracked, the threshold limit to trigger the alert and the target channel where the members should be notified and click **Add**.
 
-![add_alert](https://hystax.com/documentation/optscale/_static/screens/integrations/add_alert.png)
+<!-- ![add_alert](https://hystax.com/documentation/optscale/_static/screens/integrations/add_alert.png) -->
 
 The task is complete! You have added a new alert for your team members to help control your Organization's cloud expenses.
 
