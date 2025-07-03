@@ -38,7 +38,7 @@ helm repo add hystax https://hystax.github.io/helm-charts
 
 ###  Install Helm Chart
 
-There is a difference in instructions when a Kubernetes Data Source is connected on cloudtuner.ai or on CloudTuner deployed from open source. In both cases, instructions given are adapted for a selected Data Source and deployed CloudTuner. All you need is just to copy-paste it and replace the < **password\_specified\_during\_data\_source\_connection** > phrase with a user's password.
+There is a difference in instructions when a Kubernetes Data Source is connected on cloudtuner.ai or on CloudTuner. In both cases, instructions given are adapted for a selected Data Source and deployed CloudTuner. All you need is just to copy-paste it and replace the < **password\_specified\_during\_data\_source\_connection** > phrase with a user's password.
 
 #### cloudtuner.ai
 

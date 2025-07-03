@@ -9,6 +9,8 @@ slug: /
 
 CloudTuner is a platform that optimizes cloud costs and performance for any workload, providing effective cloud cost management for all types of organizations.
 
+![main](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/dashboard.png)
+
 ## CloudTuner primary capabilities
 
 - **Pool Transparency**
