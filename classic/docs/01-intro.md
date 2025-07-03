@@ -115,7 +115,7 @@ Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Goo
 
 To enable cost management and FinOps capabilities for your Kubernetes cluster, you need to deploy a software component that collects information about running pods and converts it into cost metrics. Refer to [this guide](https://docs.cloudtuner.ai/Data%20Source%20Connections/Kubernetes) for more details.
 
-This software is open-source, free of malware, and requires read-only access to Kubernetes metadata and performance metrics. 
+This software free of malware, and requires read-only access to Kubernetes metadata and performance metrics. 
 
 <!-- Please review the code and find a detailed description on [GitHub](https://github.com/hystax/helm-charts/tree/main/charts/kube-cost-metrics-collector). -->
 
