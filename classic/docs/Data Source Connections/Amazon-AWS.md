@@ -1,388 +1,264 @@
 ---
+
 title: Amazon Web Services (AWS)
+
+---
+## Quick Setup Overview
+
+CloudTuner supports AWS Organizations for centralized cost management across multiple accounts. The root account (payer) accesses collective billing data while linked accounts are managed centrally.
+
+⚠️ **Important**: Connect ALL AWS accounts (root + linked) to retrieve complete expense data. Unconnected linked accounts will be ignored.
+
+## Setup Options
+
+### Option 1: Root Account (Existing Data Export)
+
+**Prerequisites**: [AWS Data Exports](https://console.aws.amazon.com/billing/home#/dataexports) already configured
+
+#### Step 1: Update S3 Bucket Policy
+
+1. Go to [S3 Console](https://console.aws.amazon.com/s3) → Your bucket → **Permissions** → **Bucket Policy**
+2. Add this policy (replace `<bucket_name>` and `<AWS_account_ID>`):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "EnableAWSDataExportsToWriteToS3AndCheckPolicy",
+    "Effect": "Allow",
+    "Principal": {
+      "Service": ["billingreports.amazonaws.com", "bcm-data-exports.amazonaws.com"]
+    },
+    "Action": ["s3:PutObject", "s3:GetBucketPolicy"],
+    "Resource": ["arn:aws:s3:::<bucket_name>/*", "arn:aws:s3:::<bucket_name>"],
+    "Condition": {
+      "StringLike": {
+        "aws:SourceAccount": "<AWS_account_ID>",
+        "aws:SourceArn": [
+          "arn:aws:cur:us-east-1:<AWS_account_ID>:definition/*",
+          "arn:aws:bcm-data-exports:us-east-1:<AWS_account_ID>:export/*"
+        ]
+      }
+    }
+  }]
+}
+```
+
+#### Step 2: Create IAM Policies
+
+1. Go to [IAM Policies](https://console.aws.amazon.com/iam/home#/policies) → **Create Policy** → **JSON**
+
+**ReadOnly Policy:**
+*[enhanced-policy]*
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cur:DescribeReportDefinitions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::<bucket_name>/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::<bucket_name>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucket*",
+                "iam:GetAccessKeyLastUsed",
+                "cloudwatch:GetMetricStatistics",
+                "ec2:Describe*",
+                "s3:ListAllMyBuckets",
+                "iam:ListUsers",
+                "s3:GetBucketLocation",
+                "iam:GetLoginProfile",
+                "cur:DescribeReportDefinitions",
+                "iam:ListAccessKeys",
+                "elasticloadbalancing:Describe*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+#### Step 3: Create IAM User
+
+1. Go to [IAM Users](https://console.aws.amazon.com/iam/home#/users) → **Create User**
+2. **Set permissions** → **Attach policies directly** → Select both policies above
+3. **Create access key** → Download CSV with credentials
+
+#### Step 4: Connect to CloudTuner
+
+1. Go to **CloudTuner** → **Data Sources** → **Add** → **AWS** → **Root**
+2. Enter:
+    - **Access Key ID** and **Secret Key** from CSV
+    - **Export Name**: From [Data Exports table](https://console.aws.amazon.com/billing/home#/dataexports)
+    - **S3 Bucket Name**: From Data Exports table
+    - **Export Path Prefix**: Last folder from S3 destination path
+
 ---
 
-## Root account – Data Export already configured
+### Option 2: Root Account (Auto-Create Export)
 
-CloudTuner supports the AWS Organizations service that allows linking several Data Sources in order to centrally manage data of multiple users while receiving all billing exports within a single invoice. The Root account (payer) will be the only one having access to collective data related to cloud spendings. When registering this type of profile in CloudTuner, the user is given an option for Data Exports to be detected automatically.
+**Use when**: No existing AWS Data Exports
 
-Warning
+#### Step 1: Create Enhanced IAM Policy
 
-When you connect the root account but do not connect the linked accounts, all expenses from the unconnected linked accounts will be ignored, even if they exist in the data export file. To retrieve expenses from both linked and root accounts, connect all AWS accounts (not just the root). CloudTuner ignores data from unconnected linked accounts.
+1. Go to [IAM Policies](https://console.aws.amazon.com/iam/home#/policies) → **Create Policy** → **JSON**
 
-### Configure policies and user
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cur:DescribeReportDefinitions", "cur:PutReportDefinition",
+        "bcm-data-exports:ListExports", "bcm-data-exports:GetExport", "bcm-data-exports:CreateExport",
+        "s3:CreateBucket", "s3:GetObject", "s3:PutBucketPolicy", "s3:ListBucket", "s3:GetBucketLocation"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-1\. **Configure Data Exports**. Having Data Exports configured for your cloud account is the main prerequisite in order to proceed with the remaining actions. If Data Export hasn't been configured, refer to the [Root Account – Data Export not configured yet](https://docs.cloudtuner.ai/Data%20Source%20Connections/Amazon-AWS#root-account--data-export-not-configured-yet) instruction.
+2. Also create the **Resource Discovery Policy** from Option 1
 
-2\. **Update bucket policy**:
+#### Step 2: Create User & Connect
 
-- Navigate to the **Permissions** tab of your AWS S3 bucket → select **Bucket Policy**.
-- Click **\+ Add new statement** → insert a JSON code snippet:
-	```json
-	{
-	   "Version":"2012-10-17",
-	   "Statement":[
-	      {
-	         "Sid":"EnableAWSDataExportsToWriteToS3AndCheckPolicy",
-	         "Effect":"Allow",
-	         "Principal":{
-	            "Service":[
-	               "billingreports.amazonaws.com",
-	               "bcm-data-exports.amazonaws.com"
-	            ]
-	         },
-	         "Action":[
-	            "s3:PutObject",
-	            "s3:GetBucketPolicy"
-	         ],
-	         "Resource":[
-	            "arn:aws:s3:::<bucket_name>/*",
-	            "arn:aws:s3:::<bucket_name>"
-	         ],
-	         "Condition":{
-	            "StringLike":{
-	               "aws:SourceAccount":"<AWS account ID>",
-	               "aws:SourceArn":[
-	                  "arn:aws:cur:us-east-1:<AWS account ID>:definition/*",
-	                  "arn:aws:bcm-data-exports:us-east-1:<AWS account ID>:export/*"
-	               ]
-	            }
-	         }
-	      }
-	   ]
-	}
-	```
-- Replace `<bucket_name>` with the name of the bucket.
-- Replace `<AWS account ID>` with the AWS Account ID (12 digits without “-”).
-- Save.
+1. Follow Step 3 from Option 1 for user creation
+2. In CloudTuner:
+    - Select **Create new Data Export**
+    - Enter desired **Export Name** and **S3 Bucket Name**
+    - Wait 24 hours for AWS to generate export
 
-3\. Create user policies for **Discover Resources** and **ReadOnly access**.
+---
 
-- **ReadOnly access**:
-	- Follow [steps 1–5 of the instructions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-json-editor).
-	- Insert the JSON code in the **Type or paste a JSON policy document** step:
-		```json
-		{
-		   "Version":"2012-10-17",
-		   "Statement":[
-		      {
-		         "Sid":"ReportDefinition",
-		         "Effect":"Allow",
-		         "Action":[
-		            "cur:DescribeReportDefinitions"
-		         ],
-		         "Resource":"*"
-		      },
-		      {
-		         "Sid":"GetObject",
-		         "Effect":"Allow",
-		         "Action":[
-		            "s3:GetObject"
-		         ],
-		         "Resource":"arn:aws:s3:::<bucket_name>/*"
-		      },
-		      {
-		         "Sid":"BucketOperations",
-		         "Effect":"Allow",
-		         "Action":[
-		            "s3:ListBucket",
-		            "s3:GetBucketLocation"
-		         ],
-		         "Resource":"arn:aws:s3:::<bucket_name>"
-		      }
-		   ]
-		}
-		```
-	- Replace `<bucket_name>` with the name of the bucket created on the previous step.
-- **Discover Resources**:
-	- Include the following policy to allow CloudTuner to parse EC2 resource data. Follow [steps 1-5 of the instructions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-json-editor).
-	- Insert the JSON code on the **Type or paste a JSON policy document** step:
+### Option 3: Linked Account
 
-4\. **Create user** and **grant policies**:
+**Use for**: Secondary accounts under AWS Organizations
 
-- Go to **Identity and Access Management (IAM)** → **Users** → create a new user.
-- In **Step 2. Set permissions**, select **Attach policies directly** → attach the policies created earlier.
-- Confirm the creation of the user.
+#### Setup
 
-5\. **Create access key**:
+1. Create only the **Resource Discovery Policy** from Option 1
+2. Go to [IAM Users](https://console.aws.amazon.com/iam/home#/users) → Create user with this policy
+3. Generate access key
+4. In CloudTuner:
+    - Select **AWS** → **Linked** connection type
+    - Enter only **Access Key ID** and **Secret Key**
 
-- Go to **Identity and Access Management (IAM)** → **Users** → select the created user → create an access key
-- Download the.csv file with **Access key** and **Secret access key**.
+> [!NOTE]
+> 📝 **Note**: Billing data comes through root account automatically
+> 
 
-### Connect to CloudTuner
+---
+
+### Option 4: Manual Data Export Setup
+
+#### Create Standard Data Export (CUR 2.0)
+
+1. Go to [AWS Billing & Cost Management](https://console.aws.amazon.com/billing/home#/dataexports) → **Create**
+2. Configure:
+    - **Export Type**: Standard data export
+    - **Data Table**: CUR 2.0 + Include resource IDs
+    - **Storage**: Choose/create S3 bucket + path prefix
+    - **Delivery**: Overwrite existing files
+3. Wait 24 hours for AWS preparation
+4. Follow Option 1 steps for connection
+
+---
+## Connect to [CloudTuner](https://dashboard.cloudtuner.ai/cloud-accounts)
+
+  
 
 Once the user is configured, add the data source to CloudTuner.
+
+  
 
 - Go to **CloudTuner** → **Cloud Accounts** → click the **Add** button → select **AWS** → choose the **Root** connection type.
 
+  
+
 ![root_account](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cloudaccounts.png)
 
+  
+
 - Fill in the fields:
-	- Provide user credentials: **AWS Access key ID** → **Access key**, **AWS Secret access key** → **Access key secret**.
-	- Select **Export type** as in the report configured earlier: **AWS Billing and Cost Management** → **Data Exports** → find the report configured earlier → export type.
-	- Switch off **Automatically detect existing Data Exports**.
-	- Select **Connect only to data in bucket**.
-	- Provide Data Export parameters:
-		- Export Name: **AWS Billing and Cost Management** → **Data Exports** table → **Export name** column.
-		- Export Amazon S3 Bucket Name: **AWS Billing and Cost Management** → **Data Exports** table → **S3 bucket** column.
-		- Export path prefix: **AWS Billing and Cost Management** → **Data Exports** table → click on Export name → Edit → Data export storage settings → S3 destination → last folder name(without “/”). Example, S3 destination: *s3://aqa-bill-bucket/report-cur2*, enter *report-cur2* into the field.
+
+- Provide user credentials: **AWS Access key ID** → **Access key**, **AWS Secret access key** → **Access key secret**.
+
+- Select **Export type** as in the report configured earlier: **AWS Billing and Cost Management** → **Data Exports** → find the report configured earlier → export type.
+
+- Switch off **Automatically detect existing Data Exports**.
+
+- Select **Connect only to data in bucket**.
+
+- Provide Data Export parameters:
+
+- Export Name: **AWS Billing and Cost Management** → **Data Exports** table → **Export name** column.
+
+- Export Amazon S3 Bucket Name: **AWS Billing and Cost Management** → **Data Exports** table → **S3 bucket** column.
+
+- Export path prefix: **AWS Billing and Cost Management** → **Data Exports** table → click on Export name → Edit → Data export storage settings → S3 destination → last folder name(without “/”). Example, S3 destination: *s3://aqa-bill-bucket/report-cur2*, enter *report-cur2* into the field.
+
+  
 
 Attention
 
+  
+
 Wait for the export to be generated by AWS and uploaded to CloudTuner according to the schedule (which is performed on an hourly basis).
 
-Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
+> 
+> Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
+> 
+> 
 
-## Root account – Data Export not configured yet
+---
 
-CloudTuner supports the AWS Organizations service that allows linking several Data Sources in order to centrally manage data of multiple users while receiving all billing reports within a single invoice. The Root account (payer) will be the only one having access to collective data related to cloud spendings. When registering this type of profile in CloudTuner, the user is given an option for Data Exports to be created automatically.
+## Migration: CUR to CUR 2.0
 
-Warning
+### Quick Migration Steps
 
-When you connect the root account but do not connect the linked accounts, all expenses from the unconnected linked accounts will be ignored, even if they exist in the data export file. To retrieve expenses from both linked and root accounts, connect all AWS accounts (not just the root). CloudTuner ignores data from unconnected linked accounts.
+1. Go to [Data Exports](https://console.aws.amazon.com/billing/home#/dataexports) → **Create**
+2. Select **Standard data export** → **CUR 2.0**
+3. Choose existing bucket or create new one with different prefix
+4. In CloudTuner → **Data Sources** → Your AWS connection → **UPDATE CREDENTIALS**
+5. Switch on **Update Data Export parameters**
+6. Update export type to **Standard data export (CUR 2.0)** and new prefix
 
-### Configure policies and user
+---
 
-1\. **Create user policy** for bucket and export creation access.
+## Quick Links
 
-- Go to **Identity and Access Management (IAM)** → **Policies**.
-- Create a new policy for fully automatic configuration (both bucket and export are created):
-	- Follow [steps 1-5 of the instructions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.%20%20%20%20%20html#:~:text=To%20use%20the%20JSON%20policy%20editor%20to%20create%20a%20policy).
-	- Insert the JSON code on the **Type or paste a JSON policy document** step:
-		```json
-		{
-		   "Version":"2012-10-17",
-		   "Statement":[
-		      {
-		         "Sid":"ReportDefinition",
-		         "Effect":"Allow",
-		         "Action":[
-		            "cur:DescribeReportDefinitions",
-		            "cur:PutReportDefinition"
-		         ],
-		         "Resource":"*"
-		      },
-		      {
-		         "Sid":"CreateCurExportsInDataExports",
-		         "Effect":"Allow",
-		         "Action":[
-		            "bcm-data-exports:ListExports",
-		            "bcm-data-exports:GetExport",
-		            "bcm-data-exports:CreateExport"
-		         ],
-		         "Resource":"*"
-		      },
-		      {
-		         "Sid":"CreateBucket",
-		         "Effect":"Allow",
-		         "Action":[
-		            "s3:CreateBucket"
-		         ],
-		         "Resource":"*"
-		      },
-		      {
-		         "Sid":"GetObject",
-		         "Effect":"Allow",
-		         "Action":[
-		            "s3:GetObject"
-		         ],
-		         "Resource":"arn:aws:s3:::<bucket_name>/*"
-		      },
-		      {
-		         "Sid":"BucketOperations",
-		         "Effect":"Allow",
-		         "Action":[
-		            "s3:PutBucketPolicy",
-		            "s3:ListBucket",
-		            "s3:GetBucketLocation"
-		         ],
-		         "Resource":"arn:aws:s3:::<bucket_name>"
-		      }
-		   ]
-		}
-		```
-	- Replace `<bucket_name>` with the name of the bucket.
-- **Discover Resources**:
-	- Include the following policy to allow CloudTuner to parse EC2 resource data. Follow [steps 1-5 of the instructions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-json-editor).
-	- Insert the JSON code on the **Type or paste a JSON policy document** step:
+- [AWS S3 Console](https://console.aws.amazon.com/s3)
+- [IAM Policies](https://console.aws.amazon.com/iam/home#/policies)
+- [IAM Users](https://console.aws.amazon.com/iam/home#/users)
+- [AWS Data Exports](https://console.aws.amazon.com/billing/home#/dataexports)
+- [Billing & Cost Management](https://console.aws.amazon.com/billing/home)
 
-2\. **Create user** and **grant policies**:
+## Troubleshooting
 
-- Go to **Identity and Access Management (IAM)** → **Users** → create a new user.
-- In **Step 2. Set permissions**, select **Attach policies directly** → attach the policies created earlier.
-- Confirm the creation of the user.
+**Export not found**: Wait 24 hours after creation, verify bucket name/prefix **Access denied**: Check IAM policies and access key validity **No data**: Ensure all linked accounts are connected to CloudTuner
 
-3\. **Create access key**:
 
-- Go to **Identity and Access Management (IAM)** → **Users** → select the created user → create an access key
-- Download the.csv file with **Access key** and **Secret access key**.
-
-### Connect to CloudTuner
-
-Once the user is configured, add the data source to CloudTuner.
-
-- Go to **CloudTuner** → **Data Sources** → click the **Add** button → select **AWS** → choose the **Root** connection type.
-
-![root_account](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cloudaccounts.png)
-
-- Fill in the fields:
-	- Provide user credentials: **AWS Access key ID** → **Access key**, **AWS Secret access key** → **Access key secret**.
-	- Select **Export type** as in the report configured earlier: **AWS Billing and Cost Management** → **Data Exports** → find the report configured earlier → export type.
-	- Switch off **Automatically detect existing Data Exports**.
-	- Select **Create new Data Export**.
-	- Provide Data Export parameters:
-		- Export Name: enter a new name for the data export.
-		- Export Amazon S3 Bucket Name: **AWS Billing and Cost Management** → **Data Exports** table → **S3 bucket** column.
-		- Export path prefix: enter a new export path prefix that you want to prepend to the names of your report files.
-		Note
-		Specify the bucket in the 'Export S3 Bucket Name' field if it already exists. CloudTuner will then create the report and store it in the bucket using the specified prefix.
-	- Click **Connect** when done.
-	- Wait for AWS to generate the export and upload it to CloudTuner according to the schedule (approximately one day).
-
-Warning
-
-AWS updates or creates a new export file once a day. If the export file is not placed in the specified bucket under the specified prefix, the export will fail with an error.
-
-![status_failed](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cloudconnectionfailed.png)
-
-## Root account – Create Standard Data Export / Legacy CUR Export
-
-Note
-
-Creating a data export is only available for the **Root cloud account** (payer), while all its **Linked accounts** will be centrally managed and receive their billing data through the main account's invoice.
-
-In order to utilize automatic / manual billing data import in CloudTuner, first, create a Data Export in AWS. Please refer to their [official documentation](https://docs.aws.amazon.com/cur/latest/userguide/what-is-data-exports.html) to become acquainted with the guidelines for Data Exports.
-
-- Navigate to **AWS Billing & Cost Management** → **Data Exports**.
-- Create a new data export:
-	- Standard:
-		1\. Select **Standard data export** as the export type.
-		2\. Enter the export name.
-		3\. Select **CUR 2.0** → select the **Include resource IDs** checkbox → choose the time granularity for how you want the line items in the export to be aggregated.
-		4\. Select **Overwrite existing data export file** → choose the compression type.
-		5\. Set the data export storage setting:
-		- Create a new or use an existing bucket for the export.
-		- Enter the **S3 path prefix** that you want prepended to the name of your data export.
-		6\. Confirm export creation. Data export is prepared by AWS within 24 hours.
-	- Legacy CUR Export:
-		1\. Select **Legacy CUR export (CUR)** as the export type.
-		2\. Enter the export name.
-		3\. Select the **Include resource IDs** and **Refresh automatically** checkboxes.
-		4\. Set the data export delivery options:
-		- Choose the time granularity for how you want the line items in the export to be aggregated.
-		- Sekect **Overwrite existing report**.
-		- Choose the compression type.
-		5\. Set the data export storage setting:
-		- Create a new bucket or use an existing one for the export.
-		- Enter the **S3 path prefix** that you want prepended to the name of your data export.
-		6\. Confirm export creation. Data export is prepared by AWS within 24 hours
-
-When it's done, follow the steps from the section [Root account – Data Export already configured](https://docs.cloudtuner.ai/Data%20Source%20Connections/Amazon-AWS#root-account--data-export-already-configured)
-
-## Linked
-
-CloudTuner supports the AWS Organizations service that allows linking several Data Sources in order to centrally manage data of multiple users while receiving all billing exports within a single invoice.
-
-Before establishing the connection, include the **Discover Resources** policy to allow CloudTuner to parse EC2 resource data:
-
-- Follow [steps 1-5 of the instructions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-json-editor).
-- Insert the JSON code in the **Type or paste a JSON policy document** step:
-
-Now, your AWS Data Source is ready for integration with CloudTuner!
-
-### Connect to CloudTuner
-
-Go to **CloudTuner** → select **AWS** → choose the **Linked** connection type to simplify the registration process. This option removes the need to manually input bucket information for billing purposes, as the data will be received through the root account. The root user can then distribute periodic reports individually if required by company management. In this case, only the **Access Key** and **Secret Access Key** are needed.
-
-![linked_account](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/cloudtunerlinked.png)
-
-Note
-
-If you only specify a **AWS Linked account** without providing credentials for the main one, CloudTuner is not able to import any billing data.
-
-Use **Connect** to create a Data Source in CloudTuner. If some of the provided values are invalid, an error message indicates a failure to connect.
-
-Please contact our Support Team at [contact@cloudtuner.ai](mailto:contact@cloudtuner.ai) if you have any questions regarding the described configuration flow.
-
-## Migrating from CUR to CUR 2.0
-
-The information on this page can be useful if an AWS Data Source (Legacy CUR export schema) has already been connected and you want to configure CUR 2.0 data and update the AWS Data Source.
-
-### A new bucket is required
-
-#### Configure
-
-Create a new Data Export with CUR 2.0 schema:
-
-1\. Navigate to **AWS Billing & Cost Management** → **Data Exports** page → click **Create**.
-
-2\. Select **Standard data export** as an export type, enter **Export name**. This name is required when updating a data source in CloudTuner.
-
-3\. Fill in the Data table content settings section:
-
-- Select **CUR 2.0**.
-- Select the **Include resource IDs** checkbox.
-- Choose the time granularity for how you want the line items in the export to be aggregated.
-
-4\. Fill in the Data export delivery options section:
-
-- Choose **Overwrite existing data export file**.
-- Select compression type.
-
-5\. Configure a new bucket the Data export storage setting section. Fill in the **S3 path prefix** and **S3 bucket name** fields. They are required when updating a data source in CloudTuner.
-
-6\. Confirm export creation. Data Export will be prepared by AWS during 24 hours.
-
-#### Connect to CloudTuner
-
-When the bucket is ready, go to **CloudTuner** → **Data Sources** → click on the AWS data source.
-
-Click the **UPDATE CREDENTIALS** button to update the Data Source credentials:
-
-- Switch onthe **Update Data Export** parameters to update info about the billing bucket.
-- Select **Standard data export (CUR 2.0)** as an export type.
-- Enter **Export name** from the first step as **Export name**, **S3 bucket name** as **Export Amazon S3 bucket name**, and **S3 bucket** name as **Export path prefix**.
-
-Save and wait for a new export to import!
-
-### The bucket already exists
-
-Use this case if you have already connected an AWS Data Source (on Legacy CUR export schema) and want to configure CUR 2.0 data into the same bucket.
-
-#### Configure
-
-Create a new Data Export with CUR 2.0 schema:
-
-1\. Navigate to **AWS Billing & Cost Management** → **Data Exports** page → click **Create**.
-
-2\. Select **Standard data export** as an export type, enter **Export name**. This name is required when updating a data source in CloudTuner.
-
-3\. Fill in the Data table content settings section:
-
-- Select **CUR 2.0**.
-- Select the **Include resource IDs** checkbox.
-- Choose the time granularity for how you want the line items in the export to be aggregated.
-
-4\. Fill in the Data export delivery options section:
-
-- Choose **Overwrite existing data export file**.
-- Select compression type.
-
-5\. Update the Data export storage settings section contents:
-
-- Сlick **Configure** → Select existing bucket → choose an existing S3 bucket → click **Select bucket**.
-- Enter a new **S3 path prefix**. This prefix is required when updating a data source in CloudTuner.
-
-6\. Confirm export update.
-
-#### Connect to CloudTuner
-
-When the bucket is ready, go to **CloudTuner** → **Data Sources** → click on the AWS data source.
-
-Click the **UPDATE CREDENTIALS** button to update the data source credentials. Switch on **Update Data Export** parameters to update info about the billing bucket.
-
-![aws_migrate_cur1_cur2_08](https://cloudtuner-email-templates-image.s3.eu-north-1.amazonaws.com/documentation/updatecloudcredentials.png)
-
-Select **Standard data export (CUR 2.0)** export type and update **Export name** and **Export path prefix** fields, as in the updated bucket.
-
-Save and wait for a new export to import!
+> 
+> When you connect the root account but do not connect the linked accounts, all expenses from the unconnected linked accounts will be ignored, even if they exist in the data export file. To retrieve expenses from both linked and root accounts, connect all AWS accounts (not just the root). CloudTuner ignores data from unconnected linked accounts.
+> 
