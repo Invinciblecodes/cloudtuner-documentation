@@ -2,7 +2,7 @@
 title: Carbon Emission
 --- -->
 
-# Carbon Emission Monitoring - User Guide
+# Carbon Emission Monitoring
 
 ## Overview
 
