@@ -657,10 +657,10 @@ Remember:
 - ✅ Share findings with your team
 - ✅ Contact support if you need help
 
-**Happy auditing! 🚀**
-
 ---
 
 _Last Updated: November 2025_  
 _Version: 1.0.0_  
 _© 2025 Cloudtuner.ai. All rights reserved._
+
+<!-- Shriyansh agarwal | December 1, 2025, 12:29 -->
